@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYNAPSE - Bots de Trading Inteligentes para IQ Option</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-brands/css/uicons-brands.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <style>
         * {
             margin: 0;
@@ -34,7 +36,9 @@
             align-items: center;
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+            background: transparent;
+            position: relative;
+            z-index: 1;
         }
 
         .logo {
@@ -109,7 +113,9 @@
         /* Sections */
         .section {
             padding: 80px 20px;
-            background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+            background: transparent;
+            position: relative;
+            z-index: 1;
         }
 
         .section-title {
@@ -133,7 +139,8 @@
         }
 
         .service-card {
-            background: linear-gradient(145deg, #0a0a0a, #000000);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
             border: 2px solid #FF6600;
             border-radius: 15px;
             padding: 30px;
@@ -182,7 +189,8 @@
             align-items: center;
             gap: 15px;
             padding: 20px;
-            background: linear-gradient(145deg, #0a0a0a, #000000);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
             border: 1px solid #FF6600;
             border-radius: 10px;
             transition: all 0.3s ease;
@@ -208,7 +216,7 @@
 
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+            background: transparent;
         }
 
         .contact-grid {
@@ -232,14 +240,18 @@
         }
 
         .contact-card {
-            background: linear-gradient(145deg, #0a0a0a, #000000);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(10px);
             border: 2px solid #FF6600;
             border-radius: 15px;
             padding: 35px;
             text-align: center;
             transition: all 0.3s ease;
             text-decoration: none;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .contact-card:hover {
@@ -355,7 +367,8 @@
             z-index: 0;
             pointer-events: none;
             overflow: hidden;
-            opacity: 0.12;
+            opacity: 0.15;
+            background: #000000;
         }
 
         .terminal-text {
@@ -511,15 +524,14 @@
         }
 
         /* Enhanced Contact Icons */
-        .contact-icon-svg {
-            width: 60px;
-            height: 60px;
+        .contact-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
             filter: drop-shadow(0 0 10px #FF6600);
             transition: all 0.3s ease;
-            margin-bottom: 20px;
         }
 
-        .contact-card:hover .contact-icon-svg {
+        .contact-card:hover .contact-icon {
             filter: drop-shadow(0 0 20px #FF6600) drop-shadow(0 0 30px #FF6600);
             transform: scale(1.15) translateY(-5px);
         }
@@ -567,6 +579,226 @@
         @keyframes grid-scroll {
             0% { transform: perspective(500px) rotateX(60deg) translateZ(0); }
             100% { transform: perspective(500px) rotateX(60deg) translateZ(50px); }
+        }
+
+        /* Why Invest Section Styles */
+        .why-invest-subsection {
+            margin-bottom: 50px;
+        }
+
+        .subsection-title {
+            font-size: 2rem;
+            color: #FF6600;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #FF6600;
+        }
+
+        .why-invest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .why-invest-card {
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid #FF6600;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .why-invest-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FF6600, #FF8800, #FF6600);
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(15px);
+        }
+
+        .why-invest-card:hover::before {
+            opacity: 1;
+        }
+
+        .why-invest-card:hover {
+            transform: translateY(-12px) scale(1.02) rotateX(5deg) rotateY(5deg) translateZ(15px);
+            box-shadow: 
+                0 20px 40px rgba(255, 102, 0, 0.5),
+                0 0 50px rgba(255, 102, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border-color: #FF8800;
+        }
+
+        .why-invest-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px #FF6600;
+            display: block;
+        }
+
+        .why-invest-title {
+            font-size: 1.3rem;
+            color: #FF6600;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .why-invest-description {
+            color: #CCCCCC;
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Key Stats Highlight Box */
+        .key-stats-box {
+            background: rgba(255, 102, 0, 0.1);
+            border: 2px solid #FF6600;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 
+                0 0 30px rgba(255, 102, 0, 0.4),
+                inset 0 0 30px rgba(255, 102, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .key-stats-title {
+            font-size: 1.6rem;
+            color: #FF6600;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-shadow: 0 0 15px #FF6600;
+        }
+
+        .key-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .key-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 102, 0, 0.5);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .key-stat-item:hover {
+            background: rgba(255, 102, 0, 0.15);
+            border-color: #FF6600;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+            transform: translateX(5px);
+        }
+
+        .key-stat-icon {
+            font-size: 2rem;
+            text-shadow: 0 0 10px #FF6600;
+        }
+
+        .key-stat-text {
+            color: #FFFFFF;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Popularity Box */
+        .popularity-box {
+            background: rgba(255, 102, 0, 0.08);
+            border: 2px solid #FF6600;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.3);
+            margin-top: 30px;
+        }
+
+        .popularity-title {
+            font-size: 1.6rem;
+            color: #FF6600;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-shadow: 0 0 15px #FF6600;
+        }
+
+        .popularity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .popularity-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-left: 3px solid #FF6600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .popularity-item:hover {
+            background: rgba(255, 102, 0, 0.15);
+            border-left-width: 5px;
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
+            transform: translateX(8px);
+        }
+
+        .popularity-bullet {
+            color: #FF6600;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #FF6600;
+        }
+
+        .popularity-text {
+            color: #FFFFFF;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        /* Responsive adjustments for Why Invest section */
+        @media (max-width: 768px) {
+            .why-invest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .key-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subsection-title {
+                font-size: 1.6rem;
+            }
+
+            .key-stats-box,
+            .popularity-box {
+                padding: 25px;
+            }
         }
 
         /* Smooth Scroll */
@@ -661,66 +893,183 @@
         </div>
     </section>
 
+    <!-- Why Invest Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Invertir en un Bot de Trading?</h2>
+            
+            <!-- Subsection 1: Profit Potential -->
+            <div class="why-invest-subsection">
+                <h3 class="subsection-title">Potencial de Ganancias</h3>
+                <div class="why-invest-grid">
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">⚡</div>
+                        <h4 class="why-invest-title">Ejecución en milisegundos</h4>
+                        <p class="why-invest-description">Los bots capturan oportunidades que los humanos no pueden ver</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">🌐</div>
+                        <h4 class="why-invest-title">Operación 24/7</h4>
+                        <p class="why-invest-description">Sin descanso, sin fatiga, sin oportunidades perdidas</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">🎯</div>
+                        <h4 class="why-invest-title">Sin emociones</h4>
+                        <p class="why-invest-description">Elimina el miedo y la codicia que causan el 90% de las pérdidas</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">🔧</div>
+                        <h4 class="why-invest-title">Estrategias personalizadas</h4>
+                        <p class="why-invest-description">Bots adaptados a tus objetivos específicos y tolerancia al riesgo</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">📈</div>
+                        <h4 class="why-invest-title">Backtesting riguroso</h4>
+                        <p class="why-invest-description">Prueba estrategias con datos históricos antes de arriesgar capital real</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">🔄</div>
+                        <h4 class="why-invest-title">Múltiples operaciones simultáneas</h4>
+                        <p class="why-invest-description">Diversifica y opera varios activos al mismo tiempo</p>
+                    </div>
+                </div>
+                
+                <!-- Key Stats Highlight Box -->
+                <div class="key-stats-box">
+                    <h4 class="key-stats-title">💰 Ventajas Clave del Trading Automatizado</h4>
+                    <div class="key-stats-grid">
+                        <div class="key-stat-item">
+                            <span class="key-stat-icon">🚀</span>
+                            <span class="key-stat-text">Velocidad de análisis ilimitada</span>
+                        </div>
+                        <div class="key-stat-item">
+                            <span class="key-stat-icon">⏰</span>
+                            <span class="key-stat-text">Disponibilidad 24/7 sin interrupciones</span>
+                        </div>
+                        <div class="key-stat-item">
+                            <span class="key-stat-icon">🧠</span>
+                            <span class="key-stat-text">Cero decisiones emocionales</span>
+                        </div>
+                        <div class="key-stat-item">
+                            <span class="key-stat-icon">⚙️</span>
+                            <span class="key-stat-text">Configuración personalizada total</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Subsection 2: Quantitative Trading -->
+            <div class="why-invest-subsection" style="margin-top: 60px;">
+                <h3 class="subsection-title">El Auge del Trading Cuantitativo</h3>
+                <div class="why-invest-grid">
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">📊</div>
+                        <h4 class="why-invest-title">Decisiones basadas en datos</h4>
+                        <p class="why-invest-description">Modelos matemáticos y algoritmos en lugar de intuición</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">🏦</div>
+                        <h4 class="why-invest-title">Probado por institucionales</h4>
+                        <p class="why-invest-description">Hedge funds y grandes inversores usan trading cuantitativo desde hace décadas</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">🌍</div>
+                        <h4 class="why-invest-title">Ahora accesible para todos</h4>
+                        <p class="why-invest-description">La tecnología democratiza estrategias que antes eran exclusivas</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">💡</div>
+                        <h4 class="why-invest-title">Ventaja competitiva</h4>
+                        <p class="why-invest-description">Análisis más rápido = mejores oportunidades en mercados volátiles</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">📡</div>
+                        <h4 class="why-invest-title">Escalabilidad infinita</h4>
+                        <p class="why-invest-description">Monitorea miles de activos simultáneamente</p>
+                    </div>
+                    
+                    <div class="why-invest-card">
+                        <div class="why-invest-icon">🛡️</div>
+                        <h4 class="why-invest-title">Gestión de riesgo precisa</h4>
+                        <p class="why-invest-description">Parámetros predefinidos protegen tu capital automáticamente</p>
+                    </div>
+                </div>
+                
+                <!-- Popularity Factors Box -->
+                <div class="popularity-box">
+                    <h4 class="popularity-title">🔥 Por Qué Es Tan Popular Ahora</h4>
+                    <div class="popularity-list">
+                        <div class="popularity-item">
+                            <span class="popularity-bullet">▸</span>
+                            <span class="popularity-text">Avances tecnológicos lo hacen accesible</span>
+                        </div>
+                        <div class="popularity-item">
+                            <span class="popularity-bullet">▸</span>
+                            <span class="popularity-text">Eficiencia de mercado comprobada</span>
+                        </div>
+                        <div class="popularity-item">
+                            <span class="popularity-bullet">▸</span>
+                            <span class="popularity-text">Elimina barreras psicológicas</span>
+                        </div>
+                        <div class="popularity-item">
+                            <span class="popularity-bullet">▸</span>
+                            <span class="popularity-text">Ejecución consistente de estrategias ganadoras</span>
+                        </div>
+                        <div class="popularity-item">
+                            <span class="popularity-bullet">▸</span>
+                            <span class="popularity-text">Procesamiento masivo de datos de mercado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
             <h2 class="section-title">Contáctanos</h2>
             <div class="contact-grid">
                 <a href="https://t.me/prometeus5" target="_blank" class="contact-card">
-                    <svg class="contact-icon-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="telegramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#2AABEE;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#229ED9;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="120" cy="120" r="110" fill="url(#telegramGradient)"/>
-                        <path fill="#FFFFFF" d="M81.229 128.772l14.237 39.406s1.78 3.687 3.686 3.687 30.255-29.492 30.255-29.492l31.525-60.89L81.737 118.6z"/>
-                        <path fill="#D2E5F1" d="M100.106 138.878l-2.733 29.046s-1.144 8.9 7.754 0 17.415-15.763 17.415-15.763"/>
-                        <path fill="#B5CFE4" d="M81.486 130.178l-17.8-5.467s-2.164-.877-1.445-2.88c.157-.438.426-.835 1.011-1.352 3.77-3.368 142.487-54.566 142.487-54.566s2.122-.782 3.401-.372c.638.205 1.074.637 1.238 1.206.037.128.063.263.063.407.015.356-.005.714-.06 1.068v.3c-.203 2.032-2.048 68.988-2.048 68.988s-.32 3.667-2.878 3.912c-2.557.245-6.574-2.006-7.28-2.556-.515-.39-94.64-60.365-101.237-70.18-.308-.45-.497-.99-.503-1.55-.006-.56.173-1.105.493-1.58.845-1.254 30.564-27.23 30.564-27.23s2.065-1.617.14-1.617c-.595-.007-1.25.187-1.906.565-2.854 1.65-74.446 47.24-80.37 51.03z"/>
-                    </svg>
+                    <div class="contact-icon"><i class="fi fi-brands-telegram"></i></div>
                     <div class="contact-label">Telegram</div>
                     <div class="contact-info">@prometeus5</div>
+                    <div style="font-size: 0.7rem; color: #999; margin-top: 10px;">
+                         
+                    </div>
                 </a>
 
                 <a href="https://wa.me/595985552257" target="_blank" class="contact-card">
-                    <svg class="contact-icon-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="whatsappGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#25D366;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#128C7E;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="120" cy="120" r="110" fill="url(#whatsappGradient)"/>
-                        <path fill="#FFFFFF" d="M81.229 128.772l14.237 39.406s1.78 3.687 3.686 3.687 30.255-29.492 30.255-29.492l31.525-60.89L81.737 118.6z"/>
-                        <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M120 50c-38.66 0-70 31.34-70 70 0 12.29 3.17 23.84 8.73 33.87L50 190l36.76-8.57C96.54 186.71 107.92 190 120 190c38.66 0 70-31.34 70-70s-31.34-70-70-70zm0 128.57c-11.25 0-21.71-3.17-30.66-8.66l-2.2-1.31-15.87 3.7 3.76-15.5-1.44-2.28c-6.04-9.6-9.52-20.95-9.52-33.09 0-32.29 26.28-58.57 58.57-58.57s58.57 26.28 58.57 58.57-26.28 58.57-58.57 58.57zm32.14-43.88c-1.76-.88-10.41-5.14-12.02-5.73-1.61-.59-2.78-.88-3.95.88-1.17 1.76-4.54 5.73-5.57 6.9-1.03 1.17-2.05 1.32-3.81.44-1.76-.88-7.43-2.74-14.15-8.73-5.23-4.66-8.76-10.41-9.79-12.17-1.03-1.76-.11-2.71.77-3.59.79-.79 1.76-2.05 2.64-3.08.88-1.03 1.17-1.76 1.76-2.93.59-1.17.29-2.2-.15-3.08-.44-.88-3.95-9.52-5.42-13.03-1.43-3.42-2.88-2.96-3.95-3.01-.99-.05-2.2-.06-3.37-.06-1.17 0-3.08.44-4.69 2.2-1.61 1.76-6.16 6.02-6.16 14.68s6.31 17.03 7.19 18.2c.88 1.17 12.41 18.95 30.07 26.57 4.2 1.81 7.48 2.89 10.04 3.7 4.22 1.34 8.06 1.15 11.09.7 3.38-.5 10.41-4.25 11.88-8.36 1.47-4.11 1.47-7.63.99-8.36-.44-.73-1.61-1.17-3.37-2.05z"/>
-                    </svg>
+                    <div class="contact-icon"><i class="fi fi-brands-whatsapp"></i></div>
                     <div class="contact-label">WhatsApp</div>
                     <div class="contact-info">0985552257</div>
+                    <div style="font-size: 0.7rem; color: #999; margin-top: 10px;">   
+                    </div>
                 </a>
 
                 <a href="mailto:renzociancio@gmail.com" target="_blank" class="contact-card">
-                    <svg class="contact-icon-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="emailGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FFD54F;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FFA726;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <circle cx="120" cy="120" r="110" fill="url(#emailGradient)"/>
-                        <path fill="#FFFFFF" d="M60 75h120c5.5 0 10 4.5 10 10v70c0 5.5-4.5 10-10 10H60c-5.5 0-10-4.5-10-10V85c0-5.5 4.5-10 10-10z"/>
-                        <path fill="#FFA726" d="M50 85l70 45 70-45v-7.5L120 165 50 77.5z"/>
-                        <path fill="#FFB74D" d="M190 85l-70 45-70-45v70h140z" opacity="0.3"/>
-                    </svg>
+                    <div class="contact-icon"><i class="fi fi-rr-envelope"></i></div>
                     <div class="contact-label">Email</div>
                     <div class="contact-info">renzociancio@gmail.com</div>
+                    <div style="font-size: 0.7rem; color: #999; margin-top: 10px;">
+                    </div>
                 </a>
 
                 <a href="https://github.com/Eliezer18117" target="_blank" class="contact-card">
-                    <svg class="contact-icon-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="120" cy="120" r="110" fill="#24292e"/>
-                        <path fill="#FFFFFF" d="M120 50c-38.66 0-70 31.52-70 70.41 0 31.11 20.13 57.52 48.04 66.85 3.51.65 4.8-1.53 4.8-3.4 0-1.68-.06-6.13-.1-12.04-19.48 4.25-23.59-9.42-23.59-9.42-3.19-8.13-7.79-10.29-7.79-10.29-6.37-4.37.48-4.28.48-4.28 7.04.5 10.75 7.25 10.75 7.25 6.26 10.76 16.42 7.65 20.42 5.85.63-4.55 2.45-7.65 4.45-9.41-15.58-1.78-31.96-7.81-31.96-34.76 0-7.68 2.73-13.95 7.21-18.87-.72-1.78-3.13-8.94.69-18.64 0 0 5.88-1.89 19.25 7.21 5.58-1.56 11.57-2.34 17.52-2.37 5.95.03 11.94.81 17.52 2.37 13.37-9.1 19.24-7.21 19.24-7.21 3.82 9.7 1.41 16.86.69 18.64 4.49 4.92 7.21 11.19 7.21 18.87 0 27.01-16.41 32.96-32.04 34.7 2.52 2.18 4.76 6.47 4.76 13.04 0 9.42-.08 17.02-.08 19.33 0 1.88 1.27 4.08 4.82 3.39C169.88 177.91 190 151.51 190 120.41c0-38.89-31.34-70.41-70-70.41z"/>
-                    </svg>
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="width: 3.5rem; height: 3.5rem; fill: currentColor;">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
                     <div class="contact-label">GitHub</div>
                     <div class="contact-info">Eliezer18117</div>
                 </a>
@@ -807,9 +1156,9 @@
             });
         }
 
-        // 3D Tilt effect for service cards
+        // 3D Tilt effect for service cards and why-invest cards
         function add3DTilt() {
-            const cards = document.querySelectorAll('.service-card');
+            const cards = document.querySelectorAll('.service-card, .why-invest-card');
             
             cards.forEach(card => {
                 card.addEventListener('mousemove', (e) => {
